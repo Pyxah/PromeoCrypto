@@ -23,6 +23,10 @@ namespace CryptoClient
            
 
         }
+        private void QuitApplication(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
         private void ClearTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -87,11 +91,6 @@ namespace CryptoClient
                 MessageBox.Show($"Une erreur inattendue s'est produite : {ex.Message}");
             }
         }
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            // Pas besoin de fermer le client ici car il est déjà fermé grâce au 'using' dans la méthode EncryptButton_Click
         }
     }
 }
