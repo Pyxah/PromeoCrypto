@@ -186,44 +186,64 @@ class Server
     {
         Socket clientSocket = obj as Socket;
 
-        // Obtention des informations sur le client connecté
-        IPEndPoint clientEndPoint = clientSocket.RemoteEndPoint as IPEndPoint;
-
-        if (clientEndPoint != null)
+        try
         {
-            // Affichage des informations de connexion
-            Console.WriteLine($"{DateTime.Now} - {clientEndPoint.Address}:{clientEndPoint.Port} - Attente de la demande de chiffrement");
+            // Obtention des informations sur le client connecté
+            IPEndPoint clientEndPoint = clientSocket.RemoteEndPoint as IPEndPoint;
 
-            byte[] buffer = new byte[1024];
-            int size = clientSocket.Receive(buffer);
-            string message = Encoding.ASCII.GetString(buffer, 0, size);
-
-            // Extraction du type de chiffrement et du texte à chiffrer
-            string cipherType = message.Substring(0, 1);
-            string clearText = message.Substring(2);
-
-            // Chiffrement du texte en fonction du type de chiffrement
-            string cipherText;
-            switch (cipherType)
+            if (clientEndPoint != null)
             {
-                case "C":
-                    cipherText = CaesarCipher(clearText);
-                    break;
-                case "P":
-                    cipherText = PlayfairCipher(clearText);
-                    break;
-                case "S":
-                    cipherText = SubstitutionCipher(clearText);
-                    break;
-                default:
-                    cipherText = "Type de chiffrement non reconnu";
-                    break;
+                // Affichage des informations de connexion
+                Console.WriteLine($"{DateTime.Now} - {clientEndPoint.Address}:{clientEndPoint.Port} - Attente de la demande de chiffrement");
+
+                byte[] buffer = new byte[1024];
+                int size = clientSocket.Receive(buffer);
+                string message = Encoding.ASCII.GetString(buffer, 0, size);
+
+                // Extraction du type de chiffrement et du texte à chiffrer
+                string cipherType = message.Substring(0, 1);
+                string clearText = message.Substring(2);
+
+                // Chiffrement du texte en fonction du type de chiffrement
+                string cipherText;
+                switch (cipherType)
+                {
+                    case "C":
+                        cipherText = CaesarCipher(clearText);
+                        break;
+                    case "P":
+                        cipherText = PlayfairCipher(clearText);
+                        break;
+                    case "S":
+                        cipherText = SubstitutionCipher(clearText);
+                        break;
+                    default:
+                        cipherText = "Type de chiffrement non reconnu";
+                        break;
+                }
+
+                // Envoi du texte chiffré au client
+                clientSocket.Send(Encoding.ASCII.GetBytes(cipherText));
             }
 
-            // Envoi du texte chiffré au client
-            clientSocket.Send(Encoding.ASCII.GetBytes(cipherText));
+            clientSocket.Close();
         }
 
-        clientSocket.Close();
+        catch (SocketException ex)
+        {
+            //  indique si une connexion existante a été fermée de manière inattendue par l'hôte distant
+            if (ex.SocketErrorCode == SocketError.ConnectionReset)
+            {
+                Console.WriteLine("Connexion fermée par le client");
+            }
+            else
+            {
+                Console.WriteLine($"Une erreur réseau s'est produite : {ex.Message}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Une erreur inattendue s'est produite : {ex.Message}");
+        }
     }
 }
