@@ -1,0 +1,15 @@
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\bin\Debug\net6.0\ServeurCrypto.exe
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\bin\Debug\net6.0\ServeurCrypto.deps.json
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\bin\Debug\net6.0\ServeurCrypto.runtimeconfig.json
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\bin\Debug\net6.0\ServeurCrypto.dll
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\bin\Debug\net6.0\ServeurCrypto.pdb
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\obj\Debug\net6.0\ServeurCrypto.csproj.AssemblyReference.cache
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\obj\Debug\net6.0\ServeurCrypto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\obj\Debug\net6.0\ServeurCrypto.AssemblyInfoInputs.cache
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\obj\Debug\net6.0\ServeurCrypto.AssemblyInfo.cs
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\obj\Debug\net6.0\ServeurCrypto.csproj.CoreCompileInputs.cache
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\obj\Debug\net6.0\ServeurCrypto.dll
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\obj\Debug\net6.0\refint\ServeurCrypto.dll
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\obj\Debug\net6.0\ServeurCrypto.pdb
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\obj\Debug\net6.0\ServeurCrypto.genruntimeconfig.cache
+C:\Users\laure\source\repos\ServeurCrypto\ServeurCrypto\obj\Debug\net6.0\ref\ServeurCrypto.dll
